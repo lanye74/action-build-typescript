@@ -1,27 +1,28 @@
 {
-  "name": "action-build-typescript",
-  "version": "1.3.1",
-  "description": "A GitHub Action that builds your TypeScript projects and optionally also pushes the generated code to a different branch on your repository",
-  "main": "main.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexthemaster/action-build-typescript.git"
-  },
-  "keywords": [
-    "github",
-    "action",
-    "github action"
-  ],
-  "author": "Alex Kovacs <alexdemaster@proton.me>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/alexthemaster/action-build-typescript/issues"
-  },
-  "homepage": "https://github.com/alexthemaster/action-build-typescript#readme",
-  "dependencies": {
-    "@actions/core": "^1.10.0",
-    "@actions/exec": "^1.1.1",
-    "@actions/github": "^4.0.0",
-    "@actions/io": "^1.1.3"
-  }
+	"name": "action-build-typescript",
+	"version": "1.3.1",
+	"description": "A GitHub Action that builds your TypeScript projects and optionally also pushes the generated code to a different branch on your repository",
+	"main": "main.js",
+"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alexthemaster/action-build-typescript.git"
+	},
+	"keywords": [
+		"github",
+		"action",
+		"github action"
+	],
+	"author": "Alex Kovacs <alexdemaster@proton.me>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/alexthemaster/action-build-typescript/issues"
+	},
+	"homepage": "https://github.com/alexthemaster/action-build-typescript#readme",
+	"dependencies": {
+		"@actions/core": "^1.10.0",
+		"@actions/exec": "^1.1.1",
+		"@actions/github": "^4.0.0",
+		"@actions/io": "^1.1.3"
+	}
 }
