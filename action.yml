@@ -1,4 +1,4 @@
-name: "TypeScript Build"
+name: "Web TypeScript Build"
 description: "Build TypeScript code and optionally push the compiled code to a different branch"
 author: "Alex Kovacs"
 inputs:
