@@ -1,12 +1,9 @@
-import {getInput, info, warning, setFailed} from "@actions/core";
-import {getOctokit, context} from "@actions/github";
-import {cp} from "@actions/io";
-import {exec} from "@actions/exec";
-import {promises} from "fs";
-
-import {join} from "path";
-
-const {access} = promises;
+const {getInput, info, warning, setFailed} = require("@actions/core");
+const {getOctokit, context} = require("@actions/github");
+const {cp} = require("@actions/io");
+const {exec} = require("@actions/exec");
+const {access} = require("fs").promises;
+const join = require("path");
 
 
 // Inputs
