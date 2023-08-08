@@ -90,6 +90,12 @@ if(pushToBranch == true && !githubToken) {
 			recursive: true,
 		});
 
+
+		// Commit files
+		info("Adding files");
+		await exec(`git add ."`, [], { cwd: `branch-${branchName}` });
+
+
 		info("Removing gitignore")
 		await exec(`git rm ${join(directory, ".gitignore")}`);
 
@@ -98,13 +104,11 @@ if(pushToBranch == true && !githubToken) {
 		const srcDirectory = tsconfig.compilerOptions.rootDir || "";
 
 		if(srcDirectory !== "") {
-			await exec(`git rm -rf ${join(directory, srcDirectory)}`);
+			await exec(`git rm -r ${join(directory, srcDirectory)}`);
 		}
 
 
-		// Commit files
-		info("Adding and commiting files");
-		await exec(`git add ."`, [], { cwd: `branch-${branchName}` });
+		info("Committing");
 		// We use the catch here because sometimes the code itself may not have changed
 		await exec(`git commit -m "build: ${context.sha}"`, [], {
 			cwd: `branch-${branchName}`,
