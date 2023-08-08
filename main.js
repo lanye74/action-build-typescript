@@ -17,8 +17,9 @@ const directory = process.env.GITHUB_WORKSPACE;
 
 
 
-if (pushToBranch == true && !githubToken) {
-	return exit("A GitHub secret token is a required input for pushing code (hint: use ${{ secrets.GITHUB_TOKEN }} )");
+if(pushToBranch == true && !githubToken) {
+	exit("A GitHub secret token is a required input for pushing code (hint: use ${{ secrets.GITHUB_TOKEN }} )");
+	process.exit(0);
 }
 
 
@@ -42,8 +43,8 @@ if (pushToBranch == true && !githubToken) {
 
 		const build = await exec(`tsc`, [], { cwd: directory });
 
-		if (build !== 0) return exit("Something went wrong while building.");
-		if (pushToBranch == "false") return process.exit(0);
+		if(build !== 0) return exit("Something went wrong while building.");
+		if(pushToBranch == "false") return process.exit(0);
 
 
 		const octokit = getOctokit(githubToken);
@@ -67,7 +68,7 @@ if (pushToBranch == true && !githubToken) {
 			`git clone https://${context.actor}:${githubToken}@github.com/${owner}/${repo}.git branch-${branchName}`
 		);
 
-		if (clone !== 0) {
+		if(clone !== 0) {
 			return exit("Something went wrong while cloning the repository.");
 		}
 
