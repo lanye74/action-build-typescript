@@ -3,7 +3,7 @@ const {getOctokit, context} = require("@actions/github");
 const {cp} = require("@actions/io");
 const {exec} = require("@actions/exec");
 const {access} = require("fs").promises;
-const join = require("path");
+const {join} = require("path");
 
 
 // Inputs
