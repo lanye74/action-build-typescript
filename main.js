@@ -97,14 +97,14 @@ if(pushToBranch == true && !githubToken) {
 
 
 		info("Removing gitignore")
-		await exec(`git rm ${join(directory, ".gitignore")}`);
+		await exec(`git rm --cached ${join(directory, ".gitignore")}`);
 
 
 		info("Removing typescript files")
 		const srcDirectory = tsconfig.compilerOptions.rootDir || "";
 
 		if(srcDirectory !== "") {
-			await exec(`git rm -r ${join(directory, srcDirectory)}`);
+			await exec(`git rm -r --cached ${join(directory, srcDirectory)}`);
 		}
 
 
