@@ -91,21 +91,23 @@ if(pushToBranch == true && !githubToken) {
 		});
 
 
-		// Commit files
-		info("Adding files");
-		await exec(`git add ."`, [], { cwd: `branch-${branchName}` });
-
-
 		info("Removing gitignore")
-		await exec(`git rm --cached ${join(directory, ".gitignore")}`);
+		await exec(`git rm -f ${join(directory, ".gitignore")}`);
 
 
 		info("Removing typescript files")
 		const srcDirectory = tsconfig.compilerOptions.rootDir || "";
 
 		if(srcDirectory !== "") {
-			await exec(`git rm -r --cached ${join(directory, srcDirectory)}`);
+			await exec(`git rm -r -f ${join(directory, srcDirectory)}`);
 		}
+
+		await exec("ls");
+
+
+		// Commit files
+		info("Adding files");
+		await exec(`git add ."`, [], { cwd: `branch-${branchName}` });
 
 
 		info("Committing");
