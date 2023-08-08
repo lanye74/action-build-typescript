@@ -1,6 +1,6 @@
 import {getInput, info, warning, setFailed} from "@actions/core";
 import {getOctokit, context} from "@actions/github";
-import {cp, } from "@actions/io";
+import {cp} from "@actions/io";
 import {exec} from "@actions/exec";
 import {promises} from "fs";
 
