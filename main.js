@@ -98,7 +98,7 @@ if(pushToBranch == true && !githubToken) {
 		const srcDirectory = tsconfig.compilerOptions.rootDir || "";
 
 		if(srcDirectory !== "") {
-			await exec(`git rm ${join(directory, srcDirectory)}`);
+			await exec(`git rm -rf ${join(directory, srcDirectory)}`);
 		}
 
 
