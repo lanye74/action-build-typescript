@@ -4,14 +4,14 @@ A GitHub action that can be used to build TypeScript code and then push that bui
 ## Usage
 ```yml
 name: Build
-on: 
-    push: 
+on:
+    push:
         branches:
             - master
 jobs:
     build:
         runs-on: ubuntu-latest
-        steps: 
+        steps:
             - name: Checkout project
               uses: actions/checkout@v3
             - name: Build and push
