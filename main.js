@@ -75,11 +75,8 @@ if(pushToBranch == true && !githubToken) {
 
 		// Check out to branch
 		await exec(
-			`${
-				branchExists
-					? `git checkout ${branchName}`
-					: `git checkout --orphan ${branchName}`
-			}`,
+			`${branchExists ? `git checkout ${branchName}`
+				: `git checkout --orphan ${branchName}`}`,
 			[],
 			{ cwd: `branch-${branchName}` }
 		);
@@ -91,24 +88,9 @@ if(pushToBranch == true && !githubToken) {
 		});
 
 
-		info("Removing gitignore")
-		await exec(`git rm -f ${join(directory, ".gitignore")}`);
-
-
-		info("Removing typescript files")
-		const srcDirectory = tsconfig.compilerOptions.rootDir || "";
-
-		if(srcDirectory !== "") {
-			await exec(`git rm -r -f ${join(directory, srcDirectory)}`);
-		}
-
-		await exec("ls");
-
-
 		// Commit files
 		info("Adding files");
 		await exec(`git add ."`, [], { cwd: `branch-${branchName}` });
-
 
 		info("Committing");
 		// We use the catch here because sometimes the code itself may not have changed
